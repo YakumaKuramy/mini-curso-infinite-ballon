@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://bmd1nufklsi8i"]
+
+[ext_resource type="Script" uid="uid://qjdltdlfijg2" path="res://scripts/system/menu.gd" id="1_37pcu"]
+[ext_resource type="PackedScene" uid="uid://1mpjknkr2k0m" path="res://scenes/resources/menu_background.tscn" id="2_37pcu"]
+[ext_resource type="Texture2D" uid="uid://b5ntm3babjn43" path="res://assets/sprite/ui/buttons/sprite_buttom_play.png" id="3_0545l"]
+[ext_resource type="FontFile" uid="uid://dh0mio8m2ai0g" path="res://assets/font/TrueType (.ttf)/Kaph-Regular.ttf" id="4_3bnwl"]
+[ext_resource type="Texture2D" uid="uid://lbec0wba2wtf" path="res://assets/sprite/ui/sprite_balloon_01_icon.png" id="4_6cxwd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mjr1w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0545l"]
+font = ExtResource("4_3bnwl")
+font_size = 72
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_37pcu")
+
+[node name="background" parent="." instance=ExtResource("2_37pcu")]
+
+[node name="gerals" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -136.0
+offset_right = 193.0
+offset_bottom = 123.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="button_play" type="Button" parent="gerals"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mjr1w")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_mjr1w")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mjr1w")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_mjr1w")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_mjr1w")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_mjr1w")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_mjr1w")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_mjr1w")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mjr1w")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_mjr1w")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mjr1w")
+icon = ExtResource("3_0545l")
+icon_alignment = 1
+
+[node name="gerals" type="HBoxContainer" parent="gerals"]
+layout_mode = 2
+alignment = 1
+
+[node name="lbl_score" type="Label" parent="gerals/gerals"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_0545l")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="balloon" type="TextureRect" parent="gerals/gerals"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("4_6cxwd")
+
+[connection signal="pressed" from="gerals/button_play" to="." method="_on_button_play_pressed"]

@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnqe5fydftmfa"]
+
+[ext_resource type="Script" uid="uid://keck0cgfgh1r" path="res://scripts/system/intro_game.gd" id="1_0hq2h"]
+[ext_resource type="Texture2D" uid="uid://jg8smdakx0l7" path="res://assets/sprite/sprite_logo.png" id="1_mc3b1"]
+
+[node name="intro_game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_0hq2h")
+
+[node name="background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="texture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -266.5
+offset_top = -139.5
+offset_right = 266.5
+offset_bottom = 139.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(266, 139)
+texture = ExtResource("1_mc3b1")

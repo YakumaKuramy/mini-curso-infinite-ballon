@@ -1,0 +1,222 @@
+[gd_scene load_steps=16 format=3 uid="uid://c1ldqblcupo72"]
+
+[ext_resource type="Script" uid="uid://bwypui4rkf3q3" path="res://scripts/system/hud.gd" id="1_0h8i8"]
+[ext_resource type="Texture2D" uid="uid://ucq2l8rmiljs" path="res://assets/sprite/ui/sprite_ui_clock_bar1.png" id="1_ssal1"]
+[ext_resource type="Texture2D" uid="uid://cdkwrgbshergn" path="res://assets/sprite/ui/sprite_ui_clock_bar2.png" id="2_0h8i8"]
+[ext_resource type="Texture2D" uid="uid://b15bnc2fco2vl" path="res://assets/sprite/ui/sprite_ui_clock.png" id="3_71ysb"]
+[ext_resource type="Texture2D" uid="uid://df3wjh1kwsfpe" path="res://assets/sprite/ui/sprite_ui_clock_big_arrow.png" id="4_ie208"]
+[ext_resource type="Texture2D" uid="uid://x20dxrjc5f8e" path="res://assets/sprite/ui/sprite_ui_clock_small_arrow.png" id="5_03tus"]
+[ext_resource type="Texture2D" uid="uid://bl0oryex6n0d2" path="res://assets/sprite/ui/buttons/sprite_buttom_retry.png" id="6_gb50c"]
+[ext_resource type="FontFile" uid="uid://dh0mio8m2ai0g" path="res://assets/font/TrueType (.ttf)/Kaph-Regular.ttf" id="7_03tus"]
+[ext_resource type="Texture2D" uid="uid://lbec0wba2wtf" path="res://assets/sprite/ui/sprite_balloon_01_icon.png" id="7_ie208"]
+[ext_resource type="Texture2D" uid="uid://dimvhrjacvhky" path="res://assets/sprite/ui/buttons/sprite_buttom_backmenu.png" id="8_71ysb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_71ysb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ie208"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_71ysb"]
+font = ExtResource("7_03tus")
+font_size = 56
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_o347i"]
+line_spacing = 0.0
+font = ExtResource("7_03tus")
+font_size = 128
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wedpv"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_0h8i8")
+
+[node name="game" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="geral" type="VBoxContainer" parent="game"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -354.5
+offset_right = 354.5
+offset_bottom = 126.0
+grow_horizontal = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="separador" type="HSeparator" parent="game/geral"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 50
+theme_override_styles/separator = SubResource("StyleBoxEmpty_71ysb")
+
+[node name="progress_bar" type="HBoxContainer" parent="game/geral"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="separador" type="VSeparator" parent="game/geral/progress_bar"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 25
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ie208")
+
+[node name="clock" type="TextureRect" parent="game/geral/progress_bar"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("3_71ysb")
+stretch_mode = 2
+
+[node name="big_pointer" type="TextureRect" parent="game/geral/progress_bar/clock"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.429
+anchor_top = 0.181
+anchor_right = 0.557
+anchor_bottom = 0.5
+offset_left = -0.0300007
+offset_top = -0.0320005
+offset_right = 0.00999832
+pivot_offset = Vector2(4.5, 25)
+mouse_filter = 2
+texture = ExtResource("4_ie208")
+
+[node name="minor_pointer" type="TextureRect" parent="game/geral/progress_bar/clock"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.429
+anchor_top = 0.278
+anchor_right = 0.557
+anchor_bottom = 0.5
+offset_left = -0.0300007
+offset_top = -0.0160027
+offset_right = 0.00999832
+pivot_offset = Vector2(4.5, 18)
+mouse_filter = 2
+texture = ExtResource("5_03tus")
+
+[node name="progress_bar" type="TextureProgressBar" parent="game/geral/progress_bar"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+max_value = 60.0
+step = 0.25
+value = 60.0
+texture_over = ExtResource("1_ssal1")
+texture_progress = ExtResource("2_0h8i8")
+
+[node name="separador2" type="VSeparator" parent="game/geral/progress_bar"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 180
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ie208")
+
+[node name="lbl_score" type="Label" parent="game/geral/progress_bar"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "0"
+label_settings = SubResource("LabelSettings_71ysb")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="balloon" type="TextureRect" parent="game/geral/progress_bar"]
+unique_name_in_owner = true
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("7_ie208")
+
+[node name="separador3" type="VSeparator" parent="game/geral/progress_bar"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 25
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ie208")
+
+[node name="buttons" type="VBoxContainer" parent="game"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -354.5
+offset_top = -352.0
+offset_right = 354.5
+offset_bottom = 352.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="lbl_game_over" type="Label" parent="game/buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Game
+Over!"
+label_settings = SubResource("LabelSettings_o347i")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="button_restart_game" type="Button" parent="game/buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 128
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wedpv")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wedpv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wedpv")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_wedpv")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wedpv")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_wedpv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wedpv")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_wedpv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wedpv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_wedpv")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wedpv")
+icon = ExtResource("6_gb50c")
+icon_alignment = 1
+
+[node name="button_back_menu" type="Button" parent="game/buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 64
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wedpv")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wedpv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wedpv")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_wedpv")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wedpv")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_wedpv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wedpv")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_wedpv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wedpv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_wedpv")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wedpv")
+icon = ExtResource("8_71ysb")
+icon_alignment = 1
+
+[connection signal="pressed" from="game/buttons/button_restart_game" to="." method="_on_button_restart_game_pressed"]
+[connection signal="pressed" from="game/buttons/button_back_menu" to="." method="_on_button_back_menu_pressed"]
