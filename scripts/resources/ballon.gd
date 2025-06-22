@@ -5,6 +5,7 @@ extends Area2D
 @onready var texture: Sprite2D = $texture
 @onready var animation: AnimationPlayer = $animation
 @onready var collision: CollisionShape2D = $collision
+@onready var exploding: AudioStreamPlayer2D = $exploding
 @onready var game: Control = get_tree().get_root().get_node_or_null("/root/game")
 @onready var hud: CanvasLayer = get_tree().get_root().get_node_or_null("/root/game/HUD")
 
@@ -49,6 +50,7 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 		SaveGame.save_game()
 		animation.play("burst")
 		hud.add_time(5)
+		exploding.play()
 		
 		if scale_tween:
 			scale_tween.kill()

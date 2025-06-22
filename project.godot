@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Mini Curso Infinite Ballon"
 config/description="Este projeto é voltado para o desenvolvimento de um mini curso com objetivo de apresentar o desenvolvimento de jogos de forma simplificada e acessivel "
-config/version="vs 0.011"
+config/version="vs 0.014"
 run/main_scene="uid://bnqe5fydftmfa"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://dcnjmbyli7hix"
@@ -21,8 +21,10 @@ config/icon="uid://dcnjmbyli7hix"
 
 TransitionScreen="*res://scenes/resources/gerals/transition_screen.tscn"
 Bgm="*res://scenes/resources/gerals/bgm.tscn"
+Sfx="*res://scenes/resources/sfx.tscn"
 GameController="*res://scripts/resources/gerals/game_controller.gd"
 SaveGame="*res://scripts/resources/gerals/save_game.gd"
+Erro="*res://scenes/resources/erro.tscn"
 
 [display]
 

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://5iqpte1pkogb"]
+
+[ext_resource type="FontFile" uid="uid://bknmlx7khc2r2" path="res://assets/font/OpenType (.otf)/Kaph-Regular.otf" id="1_ny41a"]
+[ext_resource type="Script" uid="uid://bt18frbcmxp2c" path="res://scripts/resources/erro.gd" id="1_xjhmi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xjhmi"]
+font = ExtResource("1_ny41a")
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="erro" type="CanvasLayer"]
+script = ExtResource("1_xjhmi")
+
+[node name="report_error" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.097
+anchor_top = 0.912
+anchor_right = 0.903
+anchor_bottom = 0.948
+offset_left = 0.159996
+offset_top = -0.360107
+offset_right = -0.160034
+offset_bottom = 0.559937
+grow_horizontal = 2
+grow_vertical = 0
+text = "report-error"
+label_settings = SubResource("LabelSettings_xjhmi")

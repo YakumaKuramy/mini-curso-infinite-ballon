@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cka03nwnybh1p"]
+[gd_scene load_steps=8 format=3 uid="uid://cka03nwnybh1p"]
 
 [ext_resource type="Script" uid="uid://dyngwm2s4jycy" path="res://scripts/resources/ballon.gd" id="1_rg2il"]
 [ext_resource type="Texture2D" uid="uid://cpp7hpuye6psw" path="res://assets/sprite/ballons/sprite_balloon_01.png" id="2_1r164"]
+[ext_resource type="AudioStream" uid="uid://bm0np5vb3s43n" path="res://assets/audio/effects/pop.mp3" id="3_1r164"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vfwwp"]
 radius = 94.0
@@ -84,5 +85,8 @@ shape = SubResource("CapsuleShape2D_vfwwp")
 libraries = {
 &"": SubResource("AnimationLibrary_nmqk7")
 }
+
+[node name="exploding" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_1r164")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -58,12 +58,15 @@ func _on_button_restart_game_pressed() -> void:
 	TransitionScreen.restart_game()
 	use_tween(button_restart_game, "scale", Vector2(1, 1), Vector2(0.9, 0.9), 0.1)
 	game.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	Sfx.play()
 
 
 func _on_button_back_menu_pressed() -> void:
 	TransitionScreen.target_path = menu_path
 	TransitionScreen.transition_screen()
 	use_tween(button_back_menu, "scale", Vector2(1, 1), Vector2(0.9, 0.9), 0.1)
+	SaveGame.save_game()
+	Sfx.play()
 
 
 func animate_property(object: Object, property: NodePath, to_value: Variant, duration: float) -> void:

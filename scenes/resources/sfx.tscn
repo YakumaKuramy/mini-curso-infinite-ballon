@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpdmbjkaeqr3j"]
+
+[ext_resource type="AudioStream" uid="uid://cnc7olqfqfaeb" path="res://assets/audio/effects/click.mp3" id="1_jhg3f"]
+
+[node name="sfx" type="AudioStreamPlayer"]
+stream = ExtResource("1_jhg3f")

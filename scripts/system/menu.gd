@@ -22,6 +22,7 @@ func _on_button_play_pressed() -> void:
 	use_tween(button_play, "scale", Vector2(1, 1), Vector2(0.9, 0.9), 0.1)
 	TransitionScreen.target_path = game_path
 	TransitionScreen.transition_screen()
+	Sfx.play()
 
 
 func use_tween(object : Object, property: NodePath, inicial_val: Variant, final_val: Variant, duration: float) -> void:

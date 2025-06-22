@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c1ldqblcupo72"]
+[gd_scene load_steps=14 format=3 uid="uid://c1ldqblcupo72"]
 
 [ext_resource type="Script" uid="uid://bwypui4rkf3q3" path="res://scripts/system/hud.gd" id="1_0h8i8"]
 [ext_resource type="Texture2D" uid="uid://ucq2l8rmiljs" path="res://assets/sprite/ui/sprite_ui_clock_bar1.png" id="1_ssal1"]
@@ -10,10 +10,6 @@
 [ext_resource type="FontFile" uid="uid://dh0mio8m2ai0g" path="res://assets/font/TrueType (.ttf)/Kaph-Regular.ttf" id="7_03tus"]
 [ext_resource type="Texture2D" uid="uid://lbec0wba2wtf" path="res://assets/sprite/ui/sprite_balloon_01_icon.png" id="7_ie208"]
 [ext_resource type="Texture2D" uid="uid://dimvhrjacvhky" path="res://assets/sprite/ui/buttons/sprite_buttom_backmenu.png" id="8_71ysb"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_71ysb"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ie208"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_71ysb"]
 font = ExtResource("7_03tus")
@@ -45,45 +41,19 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 
-[node name="geral" type="VBoxContainer" parent="game"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -354.5
-offset_right = 354.5
-offset_bottom = 126.0
-grow_horizontal = 2
-mouse_filter = 2
-alignment = 1
-
-[node name="separador" type="HSeparator" parent="game/geral"]
+[node name="clock" type="TextureRect" parent="game"]
 layout_mode = 2
-mouse_filter = 2
-theme_override_constants/separation = 50
-theme_override_styles/separator = SubResource("StyleBoxEmpty_71ysb")
-
-[node name="progress_bar" type="HBoxContainer" parent="game/geral"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 2
-
-[node name="separador" type="VSeparator" parent="game/geral/progress_bar"]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/separation = 25
-theme_override_styles/separator = SubResource("StyleBoxEmpty_ie208")
-
-[node name="clock" type="TextureRect" parent="game/geral/progress_bar"]
-layout_mode = 2
+offset_left = 34.5
+offset_top = 55.0
+offset_right = 104.5
+offset_bottom = 127.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 texture = ExtResource("3_71ysb")
 stretch_mode = 2
 
-[node name="big_pointer" type="TextureRect" parent="game/geral/progress_bar/clock"]
+[node name="big_pointer" type="TextureRect" parent="game/clock"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.429
@@ -97,7 +67,7 @@ pivot_offset = Vector2(4.5, 25)
 mouse_filter = 2
 texture = ExtResource("4_ie208")
 
-[node name="minor_pointer" type="TextureRect" parent="game/geral/progress_bar/clock"]
+[node name="minor_pointer" type="TextureRect" parent="game/clock"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.429
@@ -111,9 +81,13 @@ pivot_offset = Vector2(4.5, 18)
 mouse_filter = 2
 texture = ExtResource("5_03tus")
 
-[node name="progress_bar" type="TextureProgressBar" parent="game/geral/progress_bar"]
+[node name="progress_bar" type="TextureProgressBar" parent="game"]
 unique_name_in_owner = true
 layout_mode = 2
+offset_left = 108.5
+offset_top = 70.0
+offset_right = 372.5
+offset_bottom = 113.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
@@ -123,32 +97,28 @@ value = 60.0
 texture_over = ExtResource("1_ssal1")
 texture_progress = ExtResource("2_0h8i8")
 
-[node name="separador2" type="VSeparator" parent="game/geral/progress_bar"]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/separation = 180
-theme_override_styles/separator = SubResource("StyleBoxEmpty_ie208")
-
-[node name="lbl_score" type="Label" parent="game/geral/progress_bar"]
+[node name="lbl_score" type="Label" parent="game"]
 unique_name_in_owner = true
 layout_mode = 2
+offset_left = 546.0
+offset_top = 59.0
+offset_right = 591.0
+offset_bottom = 124.0
 size_flags_horizontal = 4
 text = "0"
 label_settings = SubResource("LabelSettings_71ysb")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="balloon" type="TextureRect" parent="game/geral/progress_bar"]
+[node name="balloon" type="TextureRect" parent="game"]
 unique_name_in_owner = true
 modulate = Color(1, 0, 0, 1)
 layout_mode = 2
+offset_left = 595.0
+offset_top = 54.0
+offset_right = 670.0
+offset_bottom = 129.0
 texture = ExtResource("7_ie208")
-
-[node name="separador3" type="VSeparator" parent="game/geral/progress_bar"]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/separation = 25
-theme_override_styles/separator = SubResource("StyleBoxEmpty_ie208")
 
 [node name="buttons" type="VBoxContainer" parent="game"]
 unique_name_in_owner = true
